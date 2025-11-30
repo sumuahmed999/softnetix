@@ -1,0 +1,344 @@
+/* ===================================
+   Animations & Keyframes
+   =================================== */
+
+/* ===================================
+   Keyframe Animations
+   =================================== */
+
+/* Fade In from Left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In from Bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Animation for Background Shapes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+/* Gradient Shine Effect */
+@keyframes gradientShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ===================================
+   Hero Section Animations
+   =================================== */
+
+/* Title Animation */
+.hero-title {
+  animation: fadeInLeft 0.8s ease-out 0.3s both;
+}
+
+/* Subtitle Animation */
+.hero-subtitle {
+  animation: fadeInLeft 0.8s ease-out 0.6s both;
+}
+
+/* CTA Buttons Animation */
+.hero-cta {
+  animation: fadeInUp 0.8s ease-out 0.9s both;
+}
+
+/* Floating Shapes Animation */
+.floating-shape.shape-1 {
+  animation: float 25s ease-in-out infinite;
+}
+
+.floating-shape.shape-2 {
+  animation: float 30s ease-in-out infinite 5s;
+}
+
+.floating-shape.shape-3 {
+  animation: float 20s ease-in-out infinite 2s;
+}
+
+/* Button Gradient Shine on Hover */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  background-size: 200% 100%;
+  background-position: -200% center;
+  transition: background-position 0.6s ease;
+}
+
+.btn-primary:hover::before {
+  animation: gradientShine 0.6s ease forwards;
+}
+
+/* ===================================
+   Utility Animation Classes
+   =================================== */
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.6s ease-out both;
+}
+
+/* Stagger delays for multiple elements */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* ===================================
+   About Section Animations
+   =================================== */
+
+/* Floating Icon Animation */
+@keyframes floatingIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Apply floating animation to icon wrappers */
+.icon-wrapper {
+  animation: floatingIcon 3s ease-in-out infinite;
+}
+
+/* Stagger the animation for each icon */
+.about-icon-item:nth-child(1) .icon-wrapper {
+  animation-delay: 0s;
+}
+
+.about-icon-item:nth-child(2) .icon-wrapper {
+  animation-delay: 0.5s;
+}
+
+.about-icon-item:nth-child(3) .icon-wrapper {
+  animation-delay: 1s;
+}
+
+/* Scroll-triggered fade-in animation for about section */
+.about-content.fade-in-view {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.about-text.fade-in-view {
+  animation: fadeInLeft 0.8s ease-out both;
+}
+
+.about-icons.fade-in-view {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.about-icon-item.fade-in-view {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Stagger fade-in for icon items */
+.about-icon-item:nth-child(1).fade-in-view {
+  animation-delay: 0.1s;
+}
+
+.about-icon-item:nth-child(2).fade-in-view {
+  animation-delay: 0.3s;
+}
+
+.about-icon-item:nth-child(3).fade-in-view {
+  animation-delay: 0.5s;
+}
+
+
+/* ===================================
+   Scroll-Triggered Fade Animations
+   =================================== */
+
+/* Ultra Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+}
+
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #4FD1C5, #63B3ED);
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #45b8ad, #5ba3e0);
+}
+
+/* Scroll Fade Animation Base */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section-specific animations */
+section.scroll-fade {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+section.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card animations */
+.service-card.scroll-fade,
+.portfolio-item.scroll-fade,
+.testimonial-card.scroll-fade,
+.feature-card.scroll-fade {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card.scroll-fade.visible,
+.portfolio-item.scroll-fade.visible,
+.testimonial-card.scroll-fade.visible,
+.feature-card.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stats animation */
+.stats-item.scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stats-item.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Process steps animation */
+.process-step.scroll-fade {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.process-step.scroll-fade.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.process-step:nth-child(even).scroll-fade {
+  transform: translateX(40px);
+}
+
+.process-step:nth-child(even).scroll-fade.visible {
+  transform: translateX(0);
+}
+
+/* Team member animation */
+.team-member.scroll-fade {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.team-member.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Performance optimizations */
+.scroll-fade {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .scroll-fade {
+    scroll-behavior: auto;
+    animation: none;
+    transition: none;
+  }
+}
